@@ -1,0 +1,4 @@
+#If marcos {$MAXDBUSER} and {$MAXDBPASS} is set on zabbix-server, when leave this file unchanged.
+#Otherwise enter here valid logon data.
+user=SOME_READ_USER
+pass=READ_USER_PASSWORD

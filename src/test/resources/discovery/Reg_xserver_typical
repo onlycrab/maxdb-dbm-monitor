@@ -1,0 +1,60 @@
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnService
+    ImagePath    REG_EXPAND_SZ    %systemroot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnUserService
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k UnistackSvcGroup
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnUserService_aab1d
+    ImagePath    REG_EXPAND_SZ    C:\Windows\system32\svchost.exe -k UnistackSvcGroup
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ws2ifsl
+    ImagePath    REG_EXPAND_SZ    \SystemRoot\system32\drivers\ws2ifsl.sys
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch
+    ImagePath    REG_EXPAND_SZ    %systemroot%\system32\SearchIndexer.exe /Embedding
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv
+    ImagePath    REG_EXPAND_SZ    %systemroot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WudfPf
+    ImagePath    REG_EXPAND_SZ    system32\drivers\WudfPf.sys
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WUDFRd
+    ImagePath    REG_EXPAND_SZ    \SystemRoot\System32\drivers\WUDFRd.sys
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WwanSvc
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblAuthManager
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblGameSave
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xboxgip
+    ImagePath    REG_EXPAND_SZ    \SystemRoot\System32\drivers\xboxgip.sys
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc
+    ImagePath    REG_EXPAND_SZ    %SystemRoot%\system32\svchost.exe -k netsvcs -p
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xinputhid
+    ImagePath    REG_EXPAND_SZ    \SystemRoot\System32\drivers\xinputhid.sys
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XServer
+    ImagePath    REG_EXPAND_SZ    C:\sapdb\programs\pgm\serv.exe
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XServer-7201
+    ImagePath    REG_EXPAND_SZ    D:\sapdb\SDB\db\pgm\serv.exe
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XServer-7203
+    ImagePath    REG_EXPAND_SZ    D:\sapdb\CDB\db\pgm\serv.exe
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\1394ohci
+    ImagePath    REG_EXPAND_SZ    \SystemRoot\System32\drivers\1394ohci.sys

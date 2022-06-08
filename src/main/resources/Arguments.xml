@@ -1,0 +1,500 @@
+<?com.github.onlycrab.argParser.arguments.xml version="1.0" encoding="UTF-8"?>
+<arguments xmlns="argParser">
+    <info
+            description = "It is a utility for obtaining data about the health-state of a MaxDB database and transferring it to zabbix monitoring system. For usage, &lt;sapdbc.jar&gt; should be copied to &lt;maxdb-dbm-monitor.jar&gt; folder. By default, sapdbc.jar will be available under %MaxDB_InstallationPath%/runtime/jar/sapdbc.jar."
+            usage = "MaxDBHealthMonitor -[PARAM1] [VALUE1] ... -[PARAM_N] [VALUE_M]"
+            example = "To get operational infostate code, type&lt;br&gt;  maxdb-dbm-monitor -n localhost -d SDB -u user -p password -ros
+            &lt;br&gt;To get discovered MaxDB instances type&lt;br&gt;  maxdb-dbm-monitor -rdl"
+    />
+    <argument
+            shortName="h"
+            longName="help"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "STRING"
+            description = "Get help info."
+    />
+    <argument
+            shortName="n"
+            longName="node"
+            isRequiredDeclared="false"
+            isRequiredFilled="true"
+            parameters = "STRING"
+            description = "Node on which the MaxDB instance is running."
+    />
+    <argument
+            shortName="d"
+            longName="database-name"
+            isRequiredDeclared="false"
+            isRequiredFilled="true"
+            parameters = "STRING"
+            description = "MaxDB instance name."
+    />
+    <argument
+            shortName="u"
+            longName="user"
+            isRequiredDeclared="false"
+            isRequiredFilled="true"
+            parameters = "STRING"
+            description = "Read-access MaxDB instance user."
+    />
+    <argument
+            shortName="p"
+            longName="password"
+            isRequiredDeclared="false"
+            isRequiredFilled="true"
+            parameters = "STRING"
+            description = "Read-access MaxDB instance password."
+    />
+
+
+    <argument
+            shortName="ros"
+            longName="request-oper-state"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB operational state code."
+    />
+    <argument
+            shortName="ris"
+            longName="request-info-state"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB infostate values."
+    />
+    <argument
+            shortName="ric"
+            longName="request-info-cache"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB caches hit rate."
+    />
+    <argument
+            shortName="rilg"
+            longName="request-info-log"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB LogArea info."
+    />
+    <argument
+            shortName="rilc"
+            longName="request-info-locks"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB locks info."
+    />
+    <argument
+            shortName="rb"
+            longName="request-backup"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB backup info values."
+    />
+    <argument
+            shortName="rpd"
+            longName="request-params-difference"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting MaxDB instance parameters difference between current and previous call of this request."
+    />
+    <argument
+            shortName="rxs"
+            longName="request-xserver-infostate"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting XServer infostate."
+    />
+    <argument
+            shortName="rdl"
+            longName="request-database-list"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting database list (JSON format for zabbix)."
+    />
+    <argument
+            shortName="rxl"
+            longName="request-xserver-list"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            description = "Request for getting XServer list (JSON format for zabbix)."
+    />
+
+
+    <argument
+            shortName="ed"
+            longName="exclude-database"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "LIST(STRING)"
+            description = "Exclude database name from discovery. Use for &lt;rdl(request-database-list)&gt; and &lt;rxl(request-xserver-list)&gt;. Excluded db-names must be separated by comma (f.e. ADB,BDB)."
+    />
+    <argument
+            shortName="od"
+            longName="only-database"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "LIST(STRING)"
+            description = "Discover ONLY specified database names. Use for &lt;rdl(request-database-list)&gt; and &lt;rxl(request-xserver-list)&gt;. Db-names must be separated by comma (f.e. ADB,BDB)."
+    />
+    <argument
+            shortName="di"
+            longName="databases-ini"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "STRING"
+            description = "Full path to Installations.ini file on linux-like systems (for MaxDB and XServer discovery). By default /sapdb/data/config/Installations.ini."
+    />
+    <argument
+            shortName="xp"
+            longName="xserver-port"
+            isRequiredDeclared="false"
+            isRequiredFilled="true"
+            parameters = "INTEGER"
+            description = "XServer listen port value."
+    />
+
+    <argument
+            shortName="ef"
+            longName="external-file"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "STRING"
+            description = "External file for reading argument values."
+    />
+
+    <argument
+            shortName="m"
+            longName="macros"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "STRING"
+            description = "Macros value that will be returned with extracted data."
+    />
+
+    <argument
+            shortName="v"
+            longName="version"
+            isRequiredDeclared="false"
+            isRequiredFilled="false"
+            parameters = "STRING"
+            description = "Print project version info."
+    />
+
+    <dependence
+            nameDependent="ros"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="ros"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="ros"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="ros"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="ris"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="ris"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="ris"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="ris"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="ric"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="ric"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="ric"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="ric"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="rilg"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="rilg"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="rilg"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="rilg"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="rilc"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="rilc"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="rilc"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="rilc"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="rb"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="rb"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="rb"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="rb"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="rpd"
+            nameOn="n"
+    />
+    <dependence
+            nameDependent="rpd"
+            nameOn="d"
+    />
+    <dependence
+            nameDependent="rpd"
+            nameOn="u"
+    />
+    <dependence
+            nameDependent="rpd"
+            nameOn="p"
+    />
+
+    <dependence
+            nameDependent="rxs"
+            nameOn="xp"
+    />
+    <dependence
+            nameDependent="rxs"
+            nameOn="n"
+    />
+
+
+    <conflict
+            nameFirst="ros"
+            nameSecond="ris"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rb"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rxs"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rdl"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rxl"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="ros"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="ris"
+            nameSecond="rb"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rxs"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rdl"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rxl"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="ris"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rb"
+            nameSecond="rxs"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="rdl"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="rxl"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="rb"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rxs"
+            nameSecond="rdl"
+    />
+    <conflict
+            nameFirst="rxs"
+            nameSecond="rxl"
+    />
+    <conflict
+            nameFirst="rxs"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="rxs"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="rxs"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="rxs"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rdl"
+            nameSecond="rxl"
+    />
+    <conflict
+            nameFirst="rdl"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="rdl"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="rdl"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="rdl"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rxl"
+            nameSecond="ric"
+    />
+    <conflict
+            nameFirst="rxl"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="rxl"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="rxl"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="ric"
+            nameSecond="rilg"
+    />
+    <conflict
+            nameFirst="ric"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="ric"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rilg"
+            nameSecond="rilc"
+    />
+    <conflict
+            nameFirst="rilg"
+            nameSecond="rpd"
+    />
+
+    <conflict
+            nameFirst="rilc"
+            nameSecond="rpd"
+    />
+</arguments>
