@@ -162,7 +162,8 @@ public class InstParser {
             if (lines.get(index).length() > 0) {
                 Matcher matcher = Pattern.compile(INST_PAIR_CHECK).matcher(lines.get(index));
                 if (!matcher.matches()) {
-                    throw new DiscoveryException(String.format("Wrong file <%s> format at line %s : not [Installation] section format.", pathToIni, index + 1));
+                    index++;
+                    continue;
                 }
                 String[] parsed = lines.get(index).replace("/sapdb/", "").replace("/db", "").split("=");
                 dbMap.put(parsed[0], new LinuxDiscoveryData(parsed[0], parsed[1]));
